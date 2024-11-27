@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Contact</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+       <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   </head>
+   <body>
+  <!-- header top section start -->
+  <div class="header_top_section">
+   <div class="container-fluid">
+       <div class="row">
+           <div class="col-sm-12">
+               <div class="header_top_main d-flex justify-content-between align-items-center">
+                   <!-- Navbar items (aligned left) -->
+                   <div class="navbar_items d-flex align-items-center">
+                       <div class="logo">
+                           <a href="index.html"><img src="images/website Logo.png" alt="Logo"></a>
+                       </div>
+                       <div class="menu_items d-flex align-items-center">
+                           <!-- Desktop view items - Hide in mobile -->
+                           <div class="call_text"><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a></div>
+                           <div class="call_text_2"><a href="services.html"><i class="fa fa-cogs" aria-hidden="true"></i> Services</a></div>
+                           <div class="call_text_1"><a href="about.html"><i class="fa fa-info-circle" aria-hidden="true"></i> About Us</a></div>
+                           <div class="call_text"><a href="projects.html"><i class="fa fa-tasks" aria-hidden="true"></i> Projects</a></div>
+                           <div class="call_text_2"><a href="testimonial.html"><i class="fa fa-comments" aria-hidden="true"></i> Testimonial</a></div>
+                           <div class="call_text_1"><a href="contact.html"><i class="fa fa-phone" aria-hidden="true"> </i>&nbsp; </i><i class="fa fa-user" aria-hidden="true"></i> Contact Us</a></div>
+                       </div>
+                   </div>
+
+                   <!-- Contact info (aligned right) -->
+                   <div class="contact_info d-flex align-items-center">
+                       <div class="quote_btn"><a href="get-quote.html">GET A QUOTE</a></div>
+                       <div class="call_text"><a href="tel:+254704644909"><i class="fa fa-phone" aria-hidden="true"></i> +254-704-644-909</a></div>
+                       <div class="call_text_2"><a href="mailto:info@otodrive.co.ke"><i class="fa fa-envelope" aria-hidden="true"></i> info@otodrive.co.ke</a></div>
+                       <div class="call_text_1"><a href="maps.html"><i class="fa fa-map-marker" aria-hidden="true"></i> otodrive location</a></div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+ <!-- Mobile Navbar -->
+ <div class="mobile-navbar">
+  <!-- Logo -->
+  <!-- <div class="logo">
+      <a href="index.html"><img src="images/website Logo.png" alt="Logo"></a>
+  </div> -->
+
+  <!-- Menu Toggle Icon -->
+  <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+  </div>
+</div>
+
+<!-- Menu Items for Mobile -->
+<div id="menuItems" class="menu-items">
+  <div class="logo">
+      <a href="index.html"><img src="images/website Logo.png" alt="Logo"></a>
+  </div>
+  <a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+  <a href="services.html"><i class="fa fa-cogs" aria-hidden="true"></i> Services</a>
+  <a href="about.html"><i class="fa fa-info-circle" aria-hidden="true"></i> About Us</a>
+  <a href="projects.html"><i class="fa fa-tasks" aria-hidden="true"></i> Projects</a>
+  <a href="testimonial.html"><i class="fa fa-comments" aria-hidden="true"></i> Testimonial</a>
+  <a href="contact.html"><i class="fa fa-phone" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> Contact Us</a>
+</div>
+</div>
+
+<script>
+  const menu = document.getElementById('menuItems');
+  const menuToggle = document.querySelector('.menu-toggle');
+
+  function toggleMenu() {
+      // Toggle menu visibility
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  // Close menu when clicking outside of it
+  document.addEventListener('click', function(event) {
+      if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+          menu.style.display = 'none';
+      }
+  });
+</script>
+      <!-- header section end -->
+      <!-- contact section start -->
+      <div class="contact_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <h1 class="contact_taital">Contact Us</h1>
+               </div>
+            </div>
+         </div>
+         <div class="container-fluid">
+            <div class="contact_section_2">
+               <div class="row">
+                  <div class="col-md-6">
+                     <form id="contactForm">
+                        <div class="mail_section_1">
+                            <input type="text" class="mail_text" placeholder="Name" name="from_name" required>
+                            <input type="text" class="mail_text" placeholder="Phone Number" name="phone_number" required>
+                            <input type="email" class="mail_text" placeholder="Email" name="from_email" required>
+                            <textarea class="massage-bt" placeholder="Message" rows="5" name="message" required></textarea>
+                            <div class="send_bt">
+                                <button type="submit">SEND</button>
+                            </div>
+                        </div>
+                    </form>
+<!-- email functionality -->
+                    <script>
+                     document.querySelector('.send_bt').addEventListener('click', function(event) {
+                         event.preventDefault(); // Prevent form from redirecting
+                         
+                         // Gather form data
+                         const formData = new FormData();
+                         formData.append('Name', document.querySelector('input[name="Name"]').value);
+                         formData.append('Phone_Number', document.querySelector('input[name="Phone Number"]').value);
+                         formData.append('Email', document.querySelector('input[name="Email"]').value);
+                         formData.append('Massage', document.querySelector('textarea[name="Massage"]').value);
+                     
+                         // Send AJAX request
+                         fetch('send_mail.php', {
+                             method: 'POST',
+                             body: formData
+                         })
+                         .then(response => response.json())
+                         .then(data => {
+                             // Display response message
+                             alert(data.message);
+                             
+                             // Clear form fields if the message was sent successfully
+                             if (data.status === 'success') {
+                                 document.querySelector('input[name="Name"]').value = '';
+                                 document.querySelector('input[name="Phone Number"]').value = '';
+                                 document.querySelector('input[name="Email"]').value = '';
+                                 document.querySelector('textarea[name="Massage"]').value = '';
+                             }
+                         })
+                         .catch(error => console.error('Error:', error));
+                     });
+                     </script>
+                    
+                    <!-- Thank You Popup -->
+                    <div class="thank-you-popup" id="thankYouPopup">
+                        Thank you! Your message has been sent.
+                    </div>
+                    
+                  </div>
+                  <div class="col-md-6 padding_left_15">
+                     <div class="contact_img"><img src="images/canopy 2.jpg"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="map_main">
+            <div class="map-responsive">
+               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15954.304904789087!2d36.9601985!3d-1.4297154!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f75004214d2a9%3A0x7831181284a4f334!2sOtoDrive%20Autogas%20fueling%20and%20conversion%20Center%20Mavoko!5e0!3m2!1sen!2ske!4v1727360677995!5m2!1sen!2ske" width="600" height="600" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
+            </div>
+         </div>
+      </div>
+      <!-- contact section end -->
+      <!-- footer section start -->
+      <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="location_text">
+                     <ul>
+                        <li>
+                           <a href="tel:+254704644909"><span class="padding_15"><i class="fa fa-mobile" aria-hidden="true"></i></span> <br>Call +254 704 644 909</a>
+                        </li>
+                        <li class="active">
+                           <a href="mailto:info@otodrive.co.ke"><span class="padding_15"><i class="fa fa-envelope" aria-hidden="true"></i></span> <br>info@otodrive.co.ke</a>
+                        </li>
+                        <!-- <li>
+                           <a href="#"><span class="padding_15"><i class="fa fa-map-marker" aria-hidden="true"></i></span> <br>Location</a>
+                        </li>  -->
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="footer_section_2">
+               <div class="row">
+                  <div class="col-md-4">
+                     <h2 class="useful_text">QUICK LINKS</h2>
+                     <div class="footer_menu">
+                        <ul>
+                           <li><a href="index.html">Home</a></li>
+                           <li><a href="about.html">About</a></li>
+                           <li><a href="services.html">Services</a></li>
+                           <li><a href="projects.html">Projects</a></li>
+                           <li><a href="testimonial.html">Testimonial</a></li>
+                           <li><a href="blog.html">Blog</a></li>
+                           <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <h2 class="useful_text">Work Portfolio</h2>
+                     <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem</p>
+                  </div>
+                  <div class="col-md-4">
+                     <h2 class="useful_text">SIGN UP TO OUR NEWSLETTER</h2>
+                     <div class="form-group">
+                        <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="comment" name="Enter Your Email"></textarea>
+                        <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="social_icon">
+               <ul>
+                  <li>
+                     <a href="https://www.facebook.com/profile.php?id=61566117596915"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                     <a href="https://x.com/OTODRIVE_KENYA"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  </li>
+                  <!-- <li>
+                     <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  </li> -->
+                  <li>
+                     <a href="https://www.instagram.com/otodrivekenya/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <p class="copyright_text">2024 All Rights Reserved. <a href="https://larrzonesolutions.com">OtoDrive </a></p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+
+      <!-- Send_email functionality -->
+    
+
+         <!-- send email code -->
+
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#sendEmailButton').on('click', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            var name = $('input[name="Name"]').val();
+            var phone = $('input[name="Phone Number"]').val();
+            var email = $('input[name="Email"]').val();
+            var message = $('textarea[name="Massage"]').val();
+
+            $.ajax({
+                url: 'send_email.php',
+                type: 'POST',
+                data: {
+                    name: name,
+                    phone: phone,
+                    email: email,
+                    message: message
+                },
+                success: function(response) {
+                    // Display success message and clear form
+                    alert('Message sent successfully!');
+                    $('input[name="Name"], input[name="Phone Number"], input[name="Email"], textarea[name="Massage"]').val('');
+                },
+                error: function() {
+                    alert('There was an error sending the message. Please try again.');
+                }
+            });
+        });
+    });
+</script> -->
+
+         
+   </body>
+</html>

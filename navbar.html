@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header_top_section">
+        <div class="mobile-navbar">
+            <div class="logo">
+                <a href="index.html"><img src="images/website Logo.png" alt="Logo"></a>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <div id="menuItems" class="menu-items">
+            <a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            <a href="services.html"><i class="fa fa-cogs" aria-hidden="true"></i> Services</a>
+            <a href="about.html"><i class="fa fa-info-circle" aria-hidden="true"></i> About Us</a>
+            <a href="projects.html"><i class="fa fa-tasks" aria-hidden="true"></i> Projects</a>
+            <a href="testimonial.html"><i class="fa fa-comments" aria-hidden="true"></i> Testimonial</a>
+            <a href="contact.html"><i class="fa fa-phone" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> Contact Us</a>
+        </div>
+    </div>
+   <script> const menu = document.getElementById('menuItems');
+const menuToggle = document.querySelector('.menu-toggle');
+
+function toggleMenu() {
+    // Toggle menu visibility
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}
+
+// Close menu when clicking outside of it
+document.addEventListener('click', function(event) {
+    if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+        menu.style.display = 'none';
+    }
+});
+</script>
+</body>
+</html>
