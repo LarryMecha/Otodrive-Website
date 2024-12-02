@@ -110,6 +110,19 @@
 </script>
       <!-- header section end -->
       <!-- contact section start -->
+      <script src ="contactscript.js" type="text/javascript"></script>
+<script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+(function(){
+  emailjs.init({
+    publicKey: "ycv5mFr46ekPmud1X",
+  });
+})();
+</script>
+      <!-- header section end -->
+      <!-- contact section start -->
       <div class="contact_section layout_padding">
          <div class="container">
             <div class="row">
@@ -124,54 +137,29 @@
                   <div class="col-md-6">
                      <form id="contactForm">
                         <div class="mail_section_1">
-                            <input type="text" class="mail_text" placeholder="Name" name="from_name" required>
-                            <input type="text" class="mail_text" placeholder="Phone Number" name="phone_number" required>
-                            <input type="email" class="mail_text" placeholder="Email" name="from_email" required>
-                            <textarea class="massage-bt" placeholder="Message" rows="5" name="message" required></textarea>
-                            <div class="send_bt">
-                                <button type="submit">SEND</button>
-                            </div>
+                           <input type="text" id="fullName" class="mail_text" placeholder="Name" name="Name" required>
+                           <input type="text" id="number" class="mail_text" placeholder="Phone Number" name="Phone_Number"
+                              required>
+                           <input type="email" id="email_id" class="mail_text" placeholder="Email" name="Email" required>
+                           <textarea id="message" class="massage-bt" placeholder="Message" rows="5" name="message"
+                              required></textarea>
+                           <div class="send_bt">
+                              <button class="styled-button" onclick="sendMail(event)">SEND</button>
+                           </div>
                         </div>
-                    </form>
-<!-- email functionality -->
-                    <script>
-                     document.querySelector('.send_bt').addEventListener('click', function(event) {
-                         event.preventDefault(); // Prevent form from redirecting
-                         
-                         // Gather form data
-                         const formData = new FormData();
-                         formData.append('Name', document.querySelector('input[name="Name"]').value);
-                         formData.append('Phone_Number', document.querySelector('input[name="Phone Number"]').value);
-                         formData.append('Email', document.querySelector('input[name="Email"]').value);
-                         formData.append('Massage', document.querySelector('textarea[name="Massage"]').value);
-                     
-                         // Send AJAX request
-                         fetch('send_mail.php', {
-                             method: 'POST',
-                             body: formData
-                         })
-                         .then(response => response.json())
-                         .then(data => {
-                             // Display response message
-                             alert(data.message);
-                             
-                             // Clear form fields if the message was sent successfully
-                             if (data.status === 'success') {
-                                 document.querySelector('input[name="Name"]').value = '';
-                                 document.querySelector('input[name="Phone Number"]').value = '';
-                                 document.querySelector('input[name="Email"]').value = '';
-                                 document.querySelector('textarea[name="Massage"]').value = '';
-                             }
-                         })
-                         .catch(error => console.error('Error:', error));
-                     });
-                     </script>
-                    
-                    <!-- Thank You Popup -->
-                    <div class="thank-you-popup" id="thankYouPopup">
-                        Thank you! Your message has been sent.
-                    </div>
-                    
+                     </form>
+                     <!-- Modal -->
+                      
+                     <!-- <div id="customModal" class="modal">
+                        <div class="modal-content">
+                           <span class="close-button">&times;</span>
+                           <p id="modalMessage">Thank you for your message! We will get back to you shortly.</p>
+                        </div>
+                     </div> -->
+                     <!-- Thank You Message Popup -->
+                     <div id="thankYouMessage" class="thank-you-popup" style="display:none;">
+                        Thank you for your message! We will get back to you shortly.
+                     </div>
                   </div>
                   <div class="col-md-6 padding_left_15">
                      <div class="contact_img"><img src="images/canopy 2.jpg"></div>
@@ -224,12 +212,16 @@
                   </div>
                   <div class="col-md-4">
                      <h2 class="useful_text">Work Portfolio</h2>
-                     <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem</p>
+                     <p class="lorem_text">At Otodrive, we specialize in providing eco-friendly, cost-effective driving solutions for every vehicle. From autogas conversions to LPG fueling, we’ve been helping drivers save money, reduce emissions, and drive smarter.
+   
+                        Our expert team ensures premium-quality installations, backed by safety and reliability, using top-tier conversion kits and technology. We’re open 24/7 to cater to the needs of our customers and make every journey smoother, greener, and more affordable.
+                        </p>
                   </div>
                   <div class="col-md-4">
                      <h2 class="useful_text">SIGN UP TO OUR NEWSLETTER</h2>
                      <div class="form-group">
-                        <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="comment" name="Enter Your Email"></textarea>
+                        <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="comment"
+                           name="Enter Your Email"></textarea>
                         <div class="subscribe_bt"><a href="#">Subscribe</a></div>
                      </div>
                   </div>
@@ -238,16 +230,18 @@
             <div class="social_icon">
                <ul>
                   <li>
-                     <a href="https://www.facebook.com/profile.php?id=61566117596915"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                     <a href="https://www.facebook.com/profile.php?id=61566117596915"><i class="fab fa-facebook"
+                           aria-hidden="true"></i></a>
                   </li>
                   <li>
-                     <a href="https://x.com/OTODRIVE_KENYA"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                     <a href="https://x.com/OtodriveKE"><i class="fab fa-twitter" aria-hidden="true"></i></a>
                   </li>
                   <!-- <li>
-                     <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                  </li> -->
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                     </li> -->
                   <li>
-                     <a href="https://www.instagram.com/otodrivekenya/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                     <a href="https://www.instagram.com/otodriveke"><i class="fab fa-instagram"
+                           aria-hidden="true"></i></a>
                   </li>
                </ul>
             </div>
@@ -259,7 +253,7 @@
          <div class="container">
             <div class="row">
                <div class="col-sm-12">
-                  <p class="copyright_text">2024 All Rights Reserved. <a href="https://larrzonesolutions.com">OtoDrive </a></p>
+                  <p class="copyright_text">2024 All Rights Reserved. <a href="https://larrzonesolutions.com">Otodrive </a></p>
                </div>
             </div>
          </div>
