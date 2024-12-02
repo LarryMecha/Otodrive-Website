@@ -125,7 +125,36 @@
     .mean-container .mean-nav ul li a.mean-expand {
         top: 0;
     }
+/* }projects slider */
+/* #projects_slider a.carousel-control-next {
+    display: none;
 }
+#projects_slider a.carousel-control-prev {
+    display: none;
+}
+#projects_slider a.carousel-control-next {
+    display: none;
+}
+#projects_slider a.carousel-control-prev {
+    display: none;
+} 
+#projects_slider a.carousel-control-next {
+    top: 560px;
+}
+#projects_slider a.carousel-control-prev {
+    top: 560px;
+} 
+#projects_slider a.carousel-control-next {
+    right: -60px;
+    left: 0px;
+    top: 550px;
+}
+#projects_slider a.carousel-control-prev {
+    left: -60px;
+    right: 0px;
+    top: 550px;
+} */
+/* end projects slider */
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .ml-auto,

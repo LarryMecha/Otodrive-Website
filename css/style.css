@@ -901,19 +901,31 @@ button {
  }
  
  .read-more-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 4px;
- }
- 
- .read-more-btn:hover {
-    background-color: #0056b3;
- }
+    width: 140px;
+    padding-top: 30px;
+}
 
- /* projects section */
+ .read-more-btn a{
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: #black; /* Initial text color */
+    padding: 15px 20px;
+    margin-top: 10px;
+    font-weight: bold;
+    cursor: pointer; /* Show pointer cursor on hover */
+    text-decoration: none; /* Remove underline from link */
+}
+
+.read-more-btn a:hover {
+    color: gold; /* Change text color to gold on hover */
+    transition: color 0.3s ease; /* Smooth transition effect */
+}
+
+
+
+
+ /* projects readmore section ends */
 
 .projects_section {
     width: 100%;
@@ -1090,7 +1102,7 @@ i.fa.fa-link {
 .hover_main {
     width: 100%;
     float: left;
-    transition: .3s all;
+    transition: .10s all;
 }
 
 .hover_main:hover {
