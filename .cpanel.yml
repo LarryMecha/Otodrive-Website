@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/otodriveafrica/
+    - export DEPLOYPATH=/home/otodriveafrica/public_html/
     - /bin/cp about.html $DEPLOYPATH
     - /bin/cp contact.html $DEPLOYPATH
     - /bin/cp contactscript.js $DEPLOYPATH
