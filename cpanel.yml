@@ -1,6 +1,6 @@
 deployment:
   tasks:
-    - export DEPLOY_PATH=/home/$CPANEL_USER/public_html
+    - export DEPLOY_PATH=/home/$otodriveafrica/public_html
     - /bin/rm -rf $DEPLOY_PATH/*  # Clears old files (optional)
     - /bin/cp -r * $DEPLOY_PATH    # Copies all files to public_html
     - /bin/chmod -R 755 $DEPLOY_PATH  # Sets proper permissions
