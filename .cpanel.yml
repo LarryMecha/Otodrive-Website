@@ -2,6 +2,9 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/otodriveafrica/public_html/
+    - /bin/mkdir -p $DEPLOYPATH/wp-backup
+    - /bin/cp -R $DEPLOYPATH/wp-* $DEPLOYPATH/wp-backup/ 2>/dev/null || true
+    - /bin/rm -rf $DEPLOYPATH/index.php $DEPLOYPATH/wp-*.php
     - /bin/cp -R images $DEPLOYPATH
     - /bin/cp -R css $DEPLOYPATH
     - /bin/cp -R js $DEPLOYPATH
