@@ -55,7 +55,7 @@ function sendMail(event) {
 
     // Send email via EmailJS
     emailjs
-        .send("service_bmmrwfq", "template_dwe32rn", params)
+        .send("service_u7bdgwm", "template_u57mj4b", params)
         .then(function (res) {
             console.log("Email sent successfully:", res.status);
 
