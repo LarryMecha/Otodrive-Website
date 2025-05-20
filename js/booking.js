@@ -45,17 +45,86 @@ function displayTimeSlots(slots) {
     const container = document.getElementById('timeSlotsContainer');
     if (!container) return;
     container.innerHTML = '';
+    const dateInput = document.getElementById('bookingDate');
+    const today = new Date();
+    let selectedDate = null;
+    if (dateInput && dateInput.value) {
+        selectedDate = new Date(dateInput.value);
+    }
     slots.forEach(slot => {
         const slotElement = document.createElement('div');
-        slotElement.className = `time-slot ${slot.available ? 'available' : 'unavailable'}`;
+        let isPast = false;
+        let isClosed = false;
+        if (selectedDate) {
+            const [hour, minute] = slot.time.split(':').map(Number);
+            const slotDateTime = new Date(selectedDate);
+            slotDateTime.setHours(hour, minute, 0, 0);
+            // Only mark as past if today and time is before now
+            if (selectedDate.toDateString() === today.toDateString() && slotDateTime < today) {
+                isPast = true;
+            } else if (selectedDate < today.setHours(0,0,0,0)) {
+                isPast = true;
+            }
+            // Closed if Sunday or after 12pm on Saturday
+            const day = selectedDate.getDay();
+            if (day === 0) isClosed = true;
+            if (day === 6 && hour >= 12) isClosed = true;
+        }
+        let classes = 'time-slot';
+        if (!slot.available || isPast || isClosed) {
+            classes += ' unavailable red-unavailable';
+        } else {
+            classes += ' available';
+        }
+        slotElement.className = classes;
         slotElement.textContent = slot.time;
         slotElement.onclick = () => {
-            if (slot.available) {
+            if (slot.available && !isPast && !isClosed) {
                 document.getElementById('bookingTime').value = slot.time;
             }
         };
+        // Tooltip/notification on hover
+        slotElement.onmouseenter = () => {
+            let msg = '';
+            if (!slot.available || isPast || isClosed) {
+                msg = 'This time is unavailable for booking.';
+            } else {
+                msg = 'This time is available for booking.';
+            }
+            showSlotTooltip(slotElement, msg);
+        };
+        slotElement.onmouseleave = () => {
+            hideSlotTooltip();
+        };
         container.appendChild(slotElement);
     });
+}
+
+// Tooltip helpers
+function showSlotTooltip(element, message) {
+    let tooltip = document.getElementById('slot-tooltip');
+    if (!tooltip) {
+        tooltip = document.createElement('div');
+        tooltip.id = 'slot-tooltip';
+        tooltip.style.position = 'absolute';
+        tooltip.style.zIndex = 1000;
+        tooltip.style.background = '#222';
+        tooltip.style.color = '#fff';
+        tooltip.style.padding = '6px 12px';
+        tooltip.style.borderRadius = '4px';
+        tooltip.style.fontSize = '0.95em';
+        tooltip.style.pointerEvents = 'none';
+        document.body.appendChild(tooltip);
+    }
+    tooltip.textContent = message;
+    const rect = element.getBoundingClientRect();
+    tooltip.style.top = (window.scrollY + rect.top - tooltip.offsetHeight - 8) + 'px';
+    tooltip.style.left = (window.scrollX + rect.left + rect.width / 2 - tooltip.offsetWidth / 2) + 'px';
+    tooltip.style.display = 'block';
+}
+function hideSlotTooltip() {
+    const tooltip = document.getElementById('slot-tooltip');
+    if (tooltip) tooltip.style.display = 'none';
 }
 
 function isTimeSlotAvailable(date, time) {
@@ -97,7 +166,7 @@ function setupBookingForm() {
         if (result.success) {
             alert('Booking successful! Check your calendar for confirmation.');
             if (calendarLinkDiv) {
-                calendarLinkDiv.innerHTML = `<a href="${result.calendarUrl}" target="_blank" rel="noopener noreferrer">Add to Google Calendar</a>`;
+                calendarLinkDiv.innerHTML = `<a href="${result.calendarUrl}" target="_blank" rel="noopener noreferrer" class="submit-btn calendar-btn"><i class="fa fa-calendar"></i> Add to Google Calendar</a>`;
             }
         } else {
             alert('Booking failed: ' + result.error);
