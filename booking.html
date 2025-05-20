@@ -60,6 +60,12 @@
             color: white;
         }
         
+        .time-slot.red-unavailable {
+            background: #ffdddd;
+            color: #c00;
+            border: 1px solid #c00;
+        }
+        
         .form-group {
             margin-bottom: 1rem;
         }
@@ -110,6 +116,24 @@
         
         .submit-btn:hover {
             background: #45a049;
+        }
+        
+        .calendar-btn {
+            background: #007bff;
+            color: #fff !important;
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .calendar-btn i.fa-calendar {
+            font-size: 1.2em;
+        }
+        
+        .calendar-btn:hover {
+            background: #0056b3;
+            color: #fff;
         }
     </style>
 </head>
