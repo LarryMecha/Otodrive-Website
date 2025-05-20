@@ -11,4 +11,11 @@ deployment:
     - /bin/cp *.html $DEPLOYPATH
     - /bin/cp *.js $DEPLOYPATH
     - /bin/cp *.yml $DEPLOYPATH
-    - /bin/chmod 755 $DEPLOYPATH 
+    - export SERVERPATH=/home/otodriveafrica/server/
+    - /bin/mkdir -p $SERVERPATH
+    - /bin/cp server.js $SERVERPATH
+    - /bin/cp service-account.json $SERVERPATH
+    - /bin/cp credentials.json $SERVERPATH
+    - /bin/chmod 755 $DEPLOYPATH
+    - /bin/chmod 700 $SERVERPATH
+    - /bin/chmod 600 $SERVERPATH/service-account.json $SERVERPATH/credentials.json 
