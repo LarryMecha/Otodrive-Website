@@ -1,19 +1,27 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { google } = require('googleapis');
+const cors = require('cors');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+// Enable CORS for your frontend domain
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname)));
 
-const KEYFILEPATH = path.join(__dirname, 'service-account.json');
-const CALENDAR_ID = '6697b6fb8a393f617caa6df75bba201189b4e19f45434403ce7f3ebd3d5bf0dc@group.calendar.google.com';
+// Google Calendar setup
+const CALENDAR_ID = process.env.CALENDAR_ID;
 
+// Create auth client from credentials
 const auth = new google.auth.GoogleAuth({
-  keyFile: KEYFILEPATH,
+  credentials: JSON.parse(process.env.GOOGLE_CREDENTIALS),
   scopes: ['https://www.googleapis.com/auth/calendar'],
 });
 
@@ -85,10 +93,7 @@ app.post('/api/book', async (req, res) => {
   }
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
-
+// Remove static file serving and catch-all route since frontend will be on cPanel
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server running on port ${port}`);
 });
