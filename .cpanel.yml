@@ -2,13 +2,16 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/otodriveafrica/public_html/
-    - /bin/mkdir -p $DEPLOYPATH/wp-backup
-    - /bin/cp -R $DEPLOYPATH/wp-* $DEPLOYPATH/wp-backup/ 2>/dev/null || true
-    - /bin/rm -rf $DEPLOYPATH/index.php $DEPLOYPATH/wp-*.php
     - /bin/cp -R images $DEPLOYPATH
     - /bin/cp -R css $DEPLOYPATH
     - /bin/cp -R js $DEPLOYPATH
     - /bin/cp *.html $DEPLOYPATH
+    - /bin/chmod 755 $DEPLOYPATH
+    - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
+    - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
+    - /bin/mkdir -p $DEPLOYPATH/wp-backup
+    - /bin/cp -R $DEPLOYPATH/wp-* $DEPLOYPATH/wp-backup/ 2>/dev/null || true
+    - /bin/rm -rf $DEPLOYPATH/index.php $DEPLOYPATH/wp-*.php
     - /bin/cp *.js $DEPLOYPATH
     - /bin/cp *.yml $DEPLOYPATH
     - export SERVERPATH=/home/otodriveafrica/server/
@@ -16,6 +19,5 @@ deployment:
     - /bin/cp server.js $SERVERPATH
     - /bin/cp service-account.json $SERVERPATH
     - /bin/cp credentials.json $SERVERPATH
-    - /bin/chmod 755 $DEPLOYPATH
     - /bin/chmod 700 $SERVERPATH
     - /bin/chmod 600 $SERVERPATH/service-account.json $SERVERPATH/credentials.json 
