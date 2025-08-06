@@ -4,13 +4,16 @@
   "description": "Otodrive booking system API",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "prod": "node server-production.js"
   },
   "dependencies": {
-    "express": "^4.18.2",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "googleapis": "^126.0.1"
+    "express": "^4.18.2",
+    "googleapis": "^126.0.1",
+    "node-fetch": "^3.3.2"
   },
   "engines": {
     "node": ">=18.0.0"

@@ -104,6 +104,43 @@
             border: 1px solid #f5c6cb;
         }
         
+        .calendar-link-container {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        
+        .calendar-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #4285f4;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(66, 133, 244, 0.3);
+        }
+        
+        .calendar-btn:hover {
+            background: #3367d6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(66, 133, 244, 0.4);
+        }
+        
+        .calendar-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(66, 133, 244, 0.3);
+        }
+        
+        .calendar-btn i {
+            font-size: 16px;
+        }
+        
         .submit-btn {
             background: #4CAF50;
             color: white;
@@ -250,7 +287,7 @@
             
             <button type="submit" class="submit-btn">Book Appointment</button>
         </form>
-        <div id="calendarLink" style="margin-top: 1rem;"></div>
+        <div id="calendarLink" class="calendar-link-container"></div>
     </div>
     
     <!-- footer section start -->

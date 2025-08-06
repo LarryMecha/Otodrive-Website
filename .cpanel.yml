@@ -1,23 +1,28 @@
 ---
 deployment:
   tasks:
+    # Frontend deployment to cPanel (only static files)
     - export DEPLOYPATH=/home/otodriveafrica/public_html/
+    
+    # Copy website assets
     - /bin/cp -R images $DEPLOYPATH
     - /bin/cp -R css $DEPLOYPATH
     - /bin/cp -R js $DEPLOYPATH
+    
+    # Copy HTML pages (including booking.html)
     - /bin/cp *.html $DEPLOYPATH
+    
+    # Set proper permissions
     - /bin/chmod 755 $DEPLOYPATH
     - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
     - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
+    
+    # Backup existing WordPress files (if any)
     - /bin/mkdir -p $DEPLOYPATH/wp-backup
     - /bin/cp -R $DEPLOYPATH/wp-* $DEPLOYPATH/wp-backup/ 2>/dev/null || true
-    - /bin/rm -rf $DEPLOYPATH/index.php $DEPLOYPATH/wp-*.php
-    - /bin/cp *.js $DEPLOYPATH
-    - /bin/cp *.yml $DEPLOYPATH
-    - export SERVERPATH=/home/otodriveafrica/server/
-    - /bin/mkdir -p $SERVERPATH
-    - /bin/cp server.js $SERVERPATH
-    - /bin/cp service-account.json $SERVERPATH
-    - /bin/cp credentials.json $SERVERPATH
-    - /bin/chmod 700 $SERVERPATH
-    - /bin/chmod 600 $SERVERPATH/service-account.json $SERVERPATH/credentials.json 
+    
+    # Remove WordPress files (if any)
+    - /bin/rm -rf $DEPLOYPATH/index.php $DEPLOYPATH/wp-*.php 2>/dev/null || true
+    
+    # Note: Backend files (server.js, service-account.json, etc.) 
+    # will be deployed to Render, not cPanel 

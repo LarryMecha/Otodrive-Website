@@ -87,17 +87,31 @@ function setupBookingForm() {
             time: time,
             service: document.getElementById('bookingService').value,
         };
-        const res = await fetch('/api/book', {
+        // Use Render API URL (will be set after deployment)
+        const API_URL = 'https://otodrive-booking-api.onrender.com';
+        const res = await fetch(`${API_URL}/api/book`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         });
-        const result = await res.json();
+        let result;
+        try {
+            result = await res.json();
+        } catch (err) {
+            alert('Booking failed: Invalid server response.');
+            if (calendarLinkDiv) calendarLinkDiv.innerHTML = '';
+            return;
+        }
         const calendarLinkDiv = document.getElementById('calendarLink');
         if (result.success) {
             alert('Booking successful! Check your calendar for confirmation.');
             if (calendarLinkDiv) {
-                calendarLinkDiv.innerHTML = `<a href="${result.calendarUrl}" target="_blank" rel="noopener noreferrer">Add to Google Calendar</a>`;
+                calendarLinkDiv.innerHTML = `
+                    <a href="${result.calendarUrl}" target="_blank" rel="noopener noreferrer" class="calendar-btn">
+                        <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                        Add to Google Calendar
+                    </a>
+                `;
             }
         } else {
             alert('Booking failed: ' + result.error);
