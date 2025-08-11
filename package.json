@@ -4,7 +4,7 @@
   "description": "Otodrive booking system API",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server-production.js",
     "dev": "node server.js",
     "prod": "node server-production.js"
   },
