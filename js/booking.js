@@ -87,7 +87,7 @@ function setupBookingForm() {
             time: time,
             service: document.getElementById('bookingService').value,
         };
-        // Use Render API URL (will be set after deployment)
+        // Use Render API URL for production deployment
         const API_URL = 'https://otodrive-booking-api.onrender.com';
         const res = await fetch(`${API_URL}/api/book`, {
             method: 'POST',
