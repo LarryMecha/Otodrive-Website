@@ -152,5 +152,5 @@ app.get('/api/health', (req, res) => {
 app.listen(port, () => {
   console.log(`🚀 Production server running on port ${port}`);
   console.log(`📅 Calendar API: ${calendarEnabled ? 'Enabled' : 'Disabled'}`);
-  console.log(`🌐 Booking page: https://otodrive.co.ke/booking.html`);
+  console.log(`🌐 Booking page: https://otodriveafrica.com/booking.html`);
 }); 
