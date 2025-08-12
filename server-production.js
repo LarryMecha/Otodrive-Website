@@ -54,7 +54,8 @@ if (process.env.GOOGLE_CREDENTIALS) {
 }
 
 function isValidBooking(dateStr, timeStr) {
-  const date = new Date(`${dateStr}T${timeStr}:00`);
+  // Create date in Africa/Nairobi timezone for proper hour calculation
+  const date = new Date(`${dateStr}T${timeStr}:00+03:00`);
   const day = date.getDay(); // 0=Sun, 6=Sat
   const hour = date.getHours();
   if (day === 0) return false; // Sunday
@@ -77,7 +78,8 @@ app.post('/api/book', async (req, res) => {
     return res.json({ success: false, error: 'Selected time is outside business hours.' });
   }
 
-  const startDateTime = new Date(`${date}T${time}:00`);
+  // Create date in Africa/Nairobi timezone
+  const startDateTime = new Date(`${date}T${time}:00+03:00`); // +03:00 for EAT (East Africa Time)
   const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000); // 1 hour slot
 
   const event = {
