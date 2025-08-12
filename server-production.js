@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 // Enable CORS for production domain
 app.use(cors({
-  origin: ['https://otodrive.co.ke', 'https://www.otodrive.co.ke', 'http://localhost:5501'],
+  origin: ['https://otodriveafrica.com', 'https://www.otodriveafrica.com', 'http://localhost:5501'],
   methods: ['GET', 'POST'],
   credentials: true
 }));
